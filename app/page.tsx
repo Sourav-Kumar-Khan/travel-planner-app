@@ -13,9 +13,9 @@ export default function Home() {
         messages: [
           {
             role: "system",
-            content: `You're a travel planner bot. Given a destination, generate an itinerary for a one week trip. Keep it short and sweet.`,
+            content: `You're an AI interviewer bot. You have to generate relevant question given for a job description.`,
           },
-          { role: "user", content: `Destination: ${location}` },
+          { role: "user", content: `Job Description: ${location}` },
         ],
         stream: true,
         onStream: ({ message }) => setResult(message.content),
@@ -26,12 +26,12 @@ export default function Home() {
   }
   return (
     <div className="min-h-screen mx-auto my-8 max-w-4xl">
-      <h1 className="text-center mb-4 text-2xl">Travel Planner</h1>
+      <h1 className="text-center mb-4 text-2xl">AI Interviewer</h1>
       <div className="flex">
         <input
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          placeholder="Enter a destination"
+          placeholder="Enter the job position"
           className="rounded border p-2 mr-2 text-black"
         />
         <button
