@@ -13,9 +13,9 @@ export default function Home() {
         messages: [
           {
             role: "system",
-            content: `You're an AI interviewer bot. You have to generate relevant question given for a job description.`,
+            content: `As an AI interview bot, your task is to interviewing a candidate by asking questions based on a given job requirement. You will receive a detailed job description, your task is to formulate the most appropriate questions that aligns with the job's requirements.`,
           },
-          { role: "user", content: `Job Description: ${location}` },
+          { role: "user", content: `Destination: ${location}` },
         ],
         stream: true,
         onStream: ({ message }) => setResult(message.content),
@@ -26,13 +26,14 @@ export default function Home() {
   }
   return (
     <div className="min-h-screen mx-auto my-8 max-w-4xl">
-      <h1 className="text-center mb-4 text-2xl">AI Interviewer</h1>
+      <h1 className="text-center mb-4 text-2xl">AI Bot Interview</h1>
+      <p className = "text-center mb-3">This is an Interview session with an Generative Model </p>
       <div className="flex">
         <input
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          placeholder="Enter the job position"
-          className="rounded border p-2 mr-2 text-black"
+          placeholder="Enter a job postion"
+          className="p-2 border rounded mr-3 w-full block dark:bg-gray-900 dark:text-white"
         />
         <button
           className="rounded border border-black dark:border-white p-2"
